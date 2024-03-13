@@ -10,7 +10,6 @@
 SRC 	=	src/main.c \
 			src/utils.c \
 			src/swapupcase.c \
-			src/pl.c
 
 TESTS_SRC 	=	src/utils.c \
 				src/swapupcase.c
