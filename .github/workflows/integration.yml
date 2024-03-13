@@ -14,35 +14,35 @@ jobs:
       image: ghcr.io/epitech/coding-style-checker:latest
 
     steps:
-      -name: Checkout GH repo
-      uses: actions/checkout@master
+      - name: Checkout GH repo
+        uses: actions/checkout@master
       
-      -name: Run coding-style checker
-      run: check.sh $(pwd) $(pwd)
+      - name: Run coding-style checker
+        run: check.sh $(pwd) $(pwd)
 
-      -name: Report banana result
-      run: |
-        NB_ERROR=$(cat coding-style-reports.log | wc -l)
-        if [ $NB_ERROR -gt 0 ]; then
-          ERROR=*(cat coding-style-reports.log)
-          echo "::error title=$NB_ERROR errors found::$ERROR"
-          exit 1
-        fi
-        exit 0
+      - name: Report banana result
+        run: |
+          NB_ERROR=$(cat coding-style-reports.log | wc -l)
+          if [ $NB_ERROR -gt 0 ]; then
+            ERROR=*(cat coding-style-reports.log)
+            echo "::error title=$NB_ERROR errors found::$ERROR"
+            exit 1
+          fi
+          exit 0
   
   compile:
     runs-on: ubuntu latest
     steps:
-      -name: Checkout GH repo
-      uses: actions/checkout@master
+      - name: Checkout GH repo
+        uses: actions/checkout@master
       
-      -name: Compile repository
-      run: make
+      - name: Compile repository
+        run: make
 
-      -name: Check binary presence
-      run: |
-        if [ ! -f ./swapupcase ]; then
-          echo "::error file=swapupcase, title=Binary Error::Binary not found"
-          exit 1
-        fi
-        exit 0
+      - name: Check binary presence
+        run: |
+          if [ ! -f ./swapupcase ]; then
+            echo "::error file=swapupcase, title=Binary Error::Binary not found"
+            exit 1
+          fi
+          exit 0
