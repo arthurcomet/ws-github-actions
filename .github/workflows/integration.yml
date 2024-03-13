@@ -63,6 +63,6 @@ jobs:
       - name: Run unit tests
         run: ./unit_testing
 
-      -name: Run integration tests
+      - name: Run integration tests
         run: ./integration_testing
           
